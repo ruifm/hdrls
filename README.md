@@ -51,5 +51,18 @@ command failed; `2` configuration, clone, or HTTP error.
 uv run pytest -q
 ```
 
-`tests/test_e2e.py` needs `podman` and network access to pull `ubuntu:24.04`.
-It uses a fake LLM, so it does not need an API key.
+No test calls the LLM. The tests replace `llm.chat` with a fake that returns
+fixed plans, so they do not need an API key.
+
+- `tests/test_compdb.py` — unit tests for header parsing, flags, and plan
+  parsing.
+- `tests/test_e2e.py` — a small local repository: the first plan fails, the
+  fixed plan builds. Needs `podman` and network access to pull `ubuntu:24.04`.
+- `tests/test_projects.py` (marker `projects`) — builds pinned tags of zlib
+  (CMake), Lua (Make), inih (Meson, C and C++), tinyxml2 (CMake, C++), and
+  libyaml (Autotools). It compares the result with `tests/projects/<name>.txt`.
+  Needs `podman` and access to GitHub. Skip these tests with
+  `uv run pytest -m "not projects"`.
+
+The system header paths in the expected lists come from the `ubuntu:24.04`
+image (GCC 13). If that image moves to a new GCC, update the lists.

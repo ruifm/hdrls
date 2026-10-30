@@ -18,3 +18,6 @@ build-backend = "hatchling.build"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/hdrls"]
+
+[tool.pytest.ini_options]
+markers = ["projects: build pinned upstream projects in podman (slow, needs network)"]

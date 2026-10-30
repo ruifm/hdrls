@@ -1,0 +1,3 @@
+/src/include/yaml.h
+/src/src/yaml_private.h
+/usr/include/assert.h
