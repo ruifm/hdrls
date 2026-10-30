@@ -10,7 +10,9 @@ from pathlib import Path
 from . import log
 from .llm import BuildPlan
 
-BASE_IMAGE = "docker.io/library/ubuntu:24.04"
+# Pinned, not `latest`: the image tag is a hash of the Containerfile text, so
+# a moving base tag would keep reusing a stale cached image.
+BASE_IMAGE = "docker.io/library/ubuntu:26.04"
 BASE_PACKAGES = ["bear", "ca-certificates", "git"]
 OUT_MOUNT = "/hdrls-out"
 COMPDB_NAME = "compile_commands.json"

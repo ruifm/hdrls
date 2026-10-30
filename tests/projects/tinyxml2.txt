@@ -1,9 +1,7 @@
 /src/tinyxml2.h
-/usr/include/c++/13/cerrno
-/usr/include/c++/13/cstdarg
-/usr/include/c++/13/cstddef
-/usr/include/c++/13/cstdlib
-/usr/include/c++/13/cstring
-/usr/include/c++/13/ctime
-/usr/include/c++/13/new
+/usr/include/c++/15/cerrno
+/usr/include/c++/15/cstdarg
+/usr/include/c++/15/cstddef
+/usr/include/c++/15/ctime
+/usr/include/c++/15/new
 /usr/include/x86_64-linux-gnu/sys/stat.h

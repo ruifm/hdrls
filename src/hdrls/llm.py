@@ -14,7 +14,7 @@ SYSTEM_PROMPT = """\
 You prepare a minimal build environment for an upstream C/C++ project.
 
 Constraints:
-- The base image is fixed: ubuntu:24.04. The tool always installs bear, \
+- The base image is fixed: ubuntu:26.04. The tool always installs bear, \
 ca-certificates and git. Propose the smallest set of extra apt packages \
 (they are installed with --no-install-recommends). Start minimal and add \
 packages only when they are needed.

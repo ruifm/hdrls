@@ -3,7 +3,7 @@
 List the headers that an upstream C/C++ project includes directly.
 
 `hdrls` clones a git repository and asks an LLM (through OpenRouter) for a
-minimal `ubuntu:24.04` podman build environment and build commands. It builds
+minimal `ubuntu:26.04` (latest LTS) podman build environment and build commands. It builds
 the project under `bear`. When a step fails, it sends the log to the LLM and
 tries the corrected plan. After a successful build, it adds `-H -fsyntax-only`
 to each compile command, runs each command in the build container, and prints
@@ -57,12 +57,12 @@ fixed plans, so they do not need an API key.
 - `tests/test_compdb.py` — unit tests for header parsing, flags, and plan
   parsing.
 - `tests/test_e2e.py` — a small local repository: the first plan fails, the
-  fixed plan builds. Needs `podman` and network access to pull `ubuntu:24.04`.
+  fixed plan builds. Needs `podman` and network access to pull `ubuntu:26.04`.
 - `tests/test_projects.py` (marker `projects`) — builds pinned tags of zlib
   (CMake), Lua (Make), inih (Meson, C and C++), tinyxml2 (CMake, C++), and
   libyaml (Autotools). It compares the result with `tests/projects/<name>.txt`.
   Needs `podman` and access to GitHub. Skip these tests with
   `uv run pytest -m "not projects"`.
 
-The system header paths in the expected lists come from the `ubuntu:24.04`
-image (GCC 13). If that image moves to a new GCC, update the lists.
+The system header paths in the expected lists come from the `ubuntu:26.04`
+image (GCC 15). If the base image or its GCC changes, update the lists.

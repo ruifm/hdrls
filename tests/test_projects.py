@@ -1,7 +1,7 @@
 """Build pinned upstream projects with a mocked LLM and check the header lists.
 
 Each case clones a fixed tag, so the project side of the expected list is
-stable. System header paths depend on the ubuntu:24.04 image (GCC 13). The
+stable. System header paths depend on the ubuntu:26.04 image (GCC 15). The
 tests need podman and network access (GitHub and the Ubuntu archive).
 Run only the fast tests with `pytest -m "not projects"`.
 """
